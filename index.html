@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
     
     <style>
-         /* Light Mode */
+        /* Light Mode */
         :root {
             --background-color: #f5efe6; /* Soft warm beige */
             --text-color: #2a2a2a; /* Darker for better readability */
@@ -19,6 +19,7 @@
             --button-background: #3a5a40;  /* Deeper earthy green */
             --button-hover: #e6ac67;  /* Warm golden hover */
             --title-color: #c27135;  /* Deep rust-orange */
+            --shadow-color: rgba(0, 0, 0, 0.25);
         }
 
         /* Dark Mode */
@@ -30,8 +31,10 @@
                 --button-background: #4a773c;
                 --button-hover: #d4a373;
                 --title-color: #e6ac67;
+                --shadow-color: rgba(0, 0, 0, 0.5);
             }
         }
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--background-color);
@@ -47,36 +50,46 @@
 
         .container {
             background: var(--box-background);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for depth */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px var(--shadow-color);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 10px 25px var(--shadow-color);
         }
 
         h1 {
             font-family: 'Lora', serif;
             color: var(--title-color);
             font-weight: 700;
+            font-size: 2.2em;
+            margin-bottom: 10px;
         }
 
         p {
             color: var(--text-color);
             font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         /* Instagram Logo */
         .instagram-logo {
             display: inline-block;
-            margin-top: 10px;
-            width: 60px; /* Logo size */
-            height: 60px; /* Logo size */
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg'); /* Instagram SVG */
-            background-size: cover;
-            transition: transform 0.3s ease-in-out;
+            width: 60px;
+            height: 60px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0px 4px 10px var(--shadow-color);
         }
 
         .instagram-logo:hover {
-            transform: scale(1.1); /* Slight hover effect */
+            transform: scale(1.15);
+            box-shadow: 0px 6px 15px var(--shadow-color);
         }
     </style>
 </head>
@@ -85,7 +98,7 @@
         <h1>Tattoos by Roxy</h1>
         <p>Follow on Instagram</p>
         <a href="https://www.instagram.com/beansprouttattoo" target="_blank">
-            <div class="instagram-logo"></div>
+            <img class="instagram-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram Logo">
         </a>
     </div>
 </body>

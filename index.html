@@ -13,9 +13,9 @@
     <style>
         /* Light Mode */
         :root {
-            --background-color: #f5efe6; 
+            --background-gradient: linear-gradient(to bottom, #e9dcc4, #dac4a7); /* Soft natural gradient */
             --text-color: #2a2a2a; 
-            --box-background: #dac4a7; 
+            --box-background: rgba(218, 196, 167, 0.85); /* Warm tan with transparency */
             --button-background: #3a5a40;  
             --button-hover: #e6ac67;  
             --title-color: #c27135;  
@@ -25,9 +25,9 @@
         /* Dark Mode */
         @media (prefers-color-scheme: dark) {
             :root {
-                --background-color: #1c1c1c;
+                --background-gradient: linear-gradient(to bottom, #1c1c1c, #2c2c2c);
                 --text-color: #e0e0e0;
-                --box-background: #2c2c2c;
+                --box-background: rgba(44, 44, 44, 0.85);
                 --button-background: #4a773c;
                 --button-hover: #d4a373;
                 --title-color: #e6ac67;
@@ -35,10 +35,10 @@
             }
         }
 
-        /* Background with subtle texture */
+        /* Background Styling */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--background-color);
+            background: var(--background-gradient);
             background-size: cover;
             background-attachment: fixed;
             color: var(--text-color);
@@ -52,20 +52,16 @@
             animation: fadeIn 1.2s ease-in-out;
         }
 
-        /* Smooth fade-in effect */
+        /* Fade-in animation */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Container with semi-transparency */
         .container {
             background: var(--box-background);
+            backdrop-filter: blur(5px); /* Glass-like effect */
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0px 8px 20px var(--shadow-color);
@@ -111,12 +107,30 @@
 
         /* Pulse animation */
         @keyframes pulse {
-            from {
-                transform: scale(1);
-            }
-            to {
-                transform: scale(1.1);
-            }
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-color);
+            opacity: 0.4; /* Subtle watermark effect */
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: var(--title-color);
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .footer a:hover {
+            color: var(--button-hover);
         }
     </style>
 </head>
@@ -128,5 +142,8 @@
             <img class="instagram-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram Logo">
         </a>
     </div>
+    <footer class="footer">
+        Built by gfn
+    </footer>
 </body>
 </html>

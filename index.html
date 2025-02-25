@@ -8,7 +8,6 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
     <style>
          /* Light Mode */
@@ -33,7 +32,7 @@
             }
         }
         body {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
             margin: 0;
@@ -79,13 +78,30 @@
             background: var(--button-hover);
             transform: scale(1.05); /* Slight pop effect */
         }
+        /* Instagram Logo */
+        .instagram-logo {
+            display: inline-block;
+            margin-top: 15px;
+            width: 50px; /* Logo size */
+            height: 50px; /* Logo size */
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg'); /* Instagram SVG */
+            background-size: cover;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .instagram-logo:hover {
+            transform: scale(1.1); /* Slight hover effect */
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Beansprout.ink</h1>
         <p>Coming soon</p>
-        <a href="https://www.instagram.com/beansprouttattoo/">Instagram</a>
+        <a href="https://www.instagram.com/beansprouttattoo" target="_blank">
+            <div class="instagram-logo"></div>
+        </a>
     </div>
 </body>
 </html>

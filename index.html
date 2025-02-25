@@ -8,12 +8,34 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
     <style>
+         /* Light Mode */
+        :root {
+            --background-color: #f5efe6; /* Soft warm beige */
+            --text-color: #2a2a2a; /* Darker for better readability */
+            --box-background: #dac4a7; /* Darker tan for contrast */
+            --button-background: #3a5a40;  /* Deeper earthy green */
+            --button-hover: #e6ac67;  /* Warm golden hover */
+            --title-color: #c27135;  /* Deep rust-orange */
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #1c1c1c;
+                --text-color: #e0e0e0;
+                --box-background: #2c2c2c;
+                --button-background: #4a773c;
+                --button-hover: #d4a373;
+                --title-color: #e6ac67;
+            }
+        }
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f5efe6; /* Soft warm beige */
-            color: #2a2a2a; /* Darker for better readability */
+            font-family: 'Playfair Display', serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
             display: flex;
@@ -24,7 +46,7 @@
         }
 
         .container {
-            background: #dac4a7; /* Darker tan for contrast */
+            background: var(--box-background);
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for depth */
@@ -32,12 +54,12 @@
 
         h1 {
             font-family: 'Lora', serif;
-            color: #c27135; /* Deep rust-orange */
+            color: var(--title-color);
             font-weight: 700;
         }
 
         p {
-            color: #2a2a2a; /* Richer dark for contrast */
+            color: var(--text-color);
             font-size: 18px;
         }
 
@@ -45,7 +67,7 @@
             display: inline-block;
             margin-top: 15px;
             padding: 12px 24px;
-            background: #3a5a40; /* Deeper earthy green */
+            background: var(--button-background);
             color: white;
             text-decoration: none;
             border-radius: 6px;
@@ -54,7 +76,7 @@
         }
 
         a:hover {
-            background: #e6ac67; /* Warm golden hover */
+            background: var(--button-hover);
             transform: scale(1.05); /* Slight pop effect */
         }
     </style>

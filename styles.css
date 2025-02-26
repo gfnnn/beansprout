@@ -147,6 +147,8 @@ p {
     height: auto;
     border-radius: 8px;
     transition: transform 0.3s ease-in-out;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .gallery img:hover {

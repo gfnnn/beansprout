@@ -5,52 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tattoos by Roxy</title>
+    <link rel="stylesheet" href="styles.css">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
     
     <style>
-        /* Light Mode */
-        :root {
-            --background-gradient: linear-gradient(to bottom, #e9dcc4, #dac4a7); /* Soft natural gradient */
-            --text-color: #2a2a2a; 
-            --box-background: rgba(218, 196, 167, 0.85); /* Warm tan with transparency */
-            --button-background: #3a5a40;  
-            --button-hover: #e6ac67;  
-            --title-color: #c27135;  
-            --shadow-color: rgba(0, 0, 0, 0.25);
-        }
-
-        /* Dark Mode */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --background-gradient: linear-gradient(to bottom, #1c1c1c, #2c2c2c);
-                --text-color: #e0e0e0;
-                --box-background: rgba(44, 44, 44, 0.85);
-                --button-background: #4a773c;
-                --button-hover: #d4a373;
-                --title-color: #e6ac67;
-                --shadow-color: rgba(0, 0, 0, 0.5);
-            }
-        }
-
-        /* Background Styling */
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--background-gradient);
-            background-size: cover;
-            background-attachment: fixed;
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            animation: fadeIn 1.2s ease-in-out;
-        }
 
         /* Fade-in animation */
         @keyframes fadeIn {
@@ -67,27 +28,13 @@
             box-shadow: 0px 8px 20px var(--shadow-color);
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
             animation: float 5s ease-in-out infinite;
+            z-index: 1;
         }
 
         /* Floating animation */
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
-        }
-
-        h1 {
-            font-family: 'Lora', serif;
-            color: var(--title-color);
-            font-weight: 700;
-            font-size: 2.2em;
-            margin-bottom: 10px;
-        }
-
-        p {
-            color: var(--text-color);
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 20px;
         }
 
         /* Instagram Logo */
@@ -111,30 +58,17 @@
             to { transform: scale(1.1); }
         }
 
-        /* Footer */
-        .footer {
-            position: fixed;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
-            font-size: 12px;
-            color: var(--text-color);
-            opacity: 0.4; /* Subtle watermark effect */
-        }
-
-        .footer a {
-            text-decoration: none;
-            color: var(--title-color);
-            font-weight: bold;
-            transition: color 0.3s ease-in-out;
-        }
-
-        .footer a:hover {
-            color: var(--button-hover);
-        }
     </style>
 </head>
 <body>
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+    <div class="menu-overlay" id="menu">
+        <button class="close-menu" onclick="toggleMenu()">×</button>
+        <div class="menu-content">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+        </div>
+    </div>
     <div class="container">
         <h1>Tattoos by Roxy</h1>
         <p>Follow on Instagram</p>
@@ -145,5 +79,10 @@
     <footer class="footer">
         Built by <a href="dotgfn.bsky.social" target="_blank">gfn</a> | © 2025 Tattoos by Roxy
     </footer>
+    <script>
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('show');
+        }
+    </script>
 </body>
 </html>

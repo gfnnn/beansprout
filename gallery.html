@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Tattoos by Roxy</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external stylesheet -->
+
+     <!-- Google Fonts -->
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+     
+</head>
+<body>
+    <h1>Gallery</h1>
+    <div class="gallery" id="instagram-feed">
+        <!-- Instagram images will be inserted here -->
+    </div>
+
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+    <div class="menu-overlay" id="menu">
+        <button class="close-menu" onclick="toggleMenu()">×</button>
+        <div class="menu-content">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+        </div>
+    </div>
+
+    <script>
+        async function fetchInstagramFeed() {
+            const accessToken = "YOUR_INSTAGRAM_ACCESS_TOKEN"; // Replace with a valid Instagram Graph API token
+            const userId = "YOUR_INSTAGRAM_USER_ID"; // Replace with the user ID from Instagram API
+            const endpoint = `https://graph.instagram.com/${userId}/media?fields=id,media_type,media_url,caption&access_token=${accessToken}`;
+            
+            try {
+                let response = await fetch(endpoint);
+                let data = await response.json();
+                let gallery = document.getElementById("instagram-feed");
+                
+                data.data.slice(0, 10).forEach(post => {
+                    if (post.media_type === "IMAGE" || post.media_type === "CAROUSEL_ALBUM") {
+                        let imgElement = document.createElement("img");
+                        imgElement.src = post.media_url;
+                        imgElement.alt = post.caption || "Instagram Image";
+                        gallery.appendChild(imgElement);
+                    }
+                });
+            } catch (error) {
+                console.error("Failed to fetch Instagram feed:", error);
+            }
+        }
+        
+        fetchInstagramFeed();
+    </script>
+    <script>
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

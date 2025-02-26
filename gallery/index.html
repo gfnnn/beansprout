@@ -10,17 +10,50 @@
      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
      
+     <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+
 </head>
 <body>
     <div class="container">
     <h1>Gallery</h1>
     <div class="gallery" id="instagram-feed">
-        <img src="../images/dominoes.jpg" alt="Dominoes">
-        <img src="../images/flowers.jpg" alt="Flowers">
-        <img src="../images/jellyfish.jpg" alt="Jellyfish">
-        <img src="../images/valkyrie.jpg" alt="Valkyrie">
+        <img src="../images/dominoes.jpg" alt="Dominoes"onclick="openModal(this)">
+        <img src="../images/flowers.jpg" alt="Flowers"onclick="openModal(this)">
+        <img src="../images/jellyfish.jpg" alt="Jellyfish"onclick="openModal(this)">
+        <img src="../images/valkyrie.jpg" alt="Valkyrie"onclick="openModal(this)">
 
     </div>
+</div>
+
+<div id="image-modal" class="modal" onclick="closeModal()">
+    <span class="modal-close">&times;</span>
+    <img id="modal-image" src="">
 </div>
 
     <button class="menu-button" onclick="toggleMenu()">☰</button>
@@ -35,6 +68,14 @@
     <script>
         function toggleMenu() {
             document.getElementById('menu').classList.toggle('show');
+        }
+        function openModal(img) {
+            document.getElementById('modal-image').src = img.src;
+            document.getElementById('image-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('image-modal').style.display = 'none';
         }
     </script>
      <footer class="footer">

@@ -15,7 +15,11 @@
     <div class="container">
     <h1>Gallery</h1>
     <div class="gallery" id="instagram-feed">
-        <!-- Instagram images will be inserted here -->
+        <img src="../images/dominoes.jpg" alt="Dominoes">
+        <img src="../images/flowers.jpg" alt="Flowers">
+        <img src="../images/jellyfish.jpg" alt="Jellyfish">
+        <img src="../images/valkyrie.jpg" alt="Valkyrie">
+
     </div>
 </div>
 
@@ -28,32 +32,6 @@
         </div>
     </div>
 
-    <script>
-        async function fetchInstagramFeed() {
-            const accessToken = "YOUR_INSTAGRAM_ACCESS_TOKEN"; // Replace with a valid Instagram Graph API token
-            const userId = "YOUR_INSTAGRAM_USER_ID"; // Replace with the user ID from Instagram API
-            const endpoint = `https://graph.instagram.com/${userId}/media?fields=id,media_type,media_url,caption&access_token=${accessToken}`;
-            
-            try {
-                let response = await fetch(endpoint);
-                let data = await response.json();
-                let gallery = document.getElementById("instagram-feed");
-                
-                data.data.slice(0, 10).forEach(post => {
-                    if (post.media_type === "IMAGE" || post.media_type === "CAROUSEL_ALBUM") {
-                        let imgElement = document.createElement("img");
-                        imgElement.src = post.media_url;
-                        imgElement.alt = post.caption || "Instagram Image";
-                        gallery.appendChild(imgElement);
-                    }
-                });
-            } catch (error) {
-                console.error("Failed to fetch Instagram feed:", error);
-            }
-        }
-        
-        fetchInstagramFeed();
-    </script>
     <script>
         function toggleMenu() {
             document.getElementById('menu').classList.toggle('show');

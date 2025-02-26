@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - Tattoos by Roxy</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="../styles.css">
 
      <!-- Google Fonts -->
      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
@@ -12,17 +12,19 @@
      
 </head>
 <body>
+    <div class="container">
     <h1>Gallery</h1>
     <div class="gallery" id="instagram-feed">
         <!-- Instagram images will be inserted here -->
     </div>
+</div>
 
     <button class="menu-button" onclick="toggleMenu()">☰</button>
     <div class="menu-overlay" id="menu">
         <button class="close-menu" onclick="toggleMenu()">×</button>
         <div class="menu-content">
-            <a href="index.html">Home</a>
-            <a href="gallery.html">Gallery</a>
+            <a href="../index.html">Home</a>
+            <a href="../gallery/index.html">Gallery</a>
         </div>
     </div>
 
@@ -57,5 +59,8 @@
             document.getElementById('menu').classList.toggle('show');
         }
     </script>
+     <footer class="footer">
+        Built by <a href="dotgfn.bsky.social" target="_blank">gfn</a> | © 2025 Tattoos by Roxy
+    </footer>
 </body>
 </html>

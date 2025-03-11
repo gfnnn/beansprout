@@ -1,22 +1,22 @@
 :root {
-    --background-gradient: linear-gradient(to bottom, #e9dcc4, #dac4a7);
-    --text-color: #2a2a2a; 
-    --box-background: rgba(218, 196, 167, 0.85); 
+    --background-gradient: linear-gradient(to bottom, #c4ccc1, #b4bcc1);
+    --text-color: #827970; 
+    --box-background: #bbc2b7;
     --button-background: #3a5a40;  
-    --button-hover: #e6ac67;  
-    --title-color: #c27135;  
-    --shadow-color: rgba(0, 0, 0, 0.25);
+    --button-hover: #f0a650;  
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --svg-filter: invert(49%) sepia(1%) saturate(2777%) hue-rotate(349deg) brightness(97%) contrast(95%);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --background-gradient: linear-gradient(to bottom, #1c1c1c, #2c2c2c);
-        --text-color: #e0e0e0;
-        --box-background: rgba(44, 44, 44, 0.85);
+        --background-gradient: linear-gradient(to bottom, #707670, #575b57);
+        --text-color: #d2c4b5;
+        --box-background: #4d514d;
         --button-background: #4a773c;
         --button-hover: #d4a373;
-        --title-color: #e6ac67;
         --shadow-color: rgba(0, 0, 0, 0.5);
+        --svg-filter: invert(94%) sepia(10%) saturate(580%) hue-rotate(328deg) brightness(85%) contrast(93%);
     }
 }
 
@@ -29,6 +29,7 @@ body {
     color: var(--text-color);
     margin: 0;
     padding: 0;
+    padding-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +39,7 @@ body {
 
 h1 {
     font-family: 'Lora', serif;
-    color: var(--title-color);
+    color: var(--text-color);
     font-weight: 700;
     font-size: 2.2em;
     margin-bottom: 10px;
@@ -143,7 +144,7 @@ p {
 
 .footer a {
     text-decoration: none;
-    color: var(--title-color);
+    color: var(--text-color);
     font-weight: bold;
     transition: color 0.3s ease-in-out;
     cursor: pointer;
@@ -173,4 +174,32 @@ p {
 
 .gallery img:hover {
     transform: scale(1.05);
+}
+
+.instagram-logo {
+    filter: var(--svg-filter);
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.instagram-logo:hover {
+    animation: pulse 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
 }

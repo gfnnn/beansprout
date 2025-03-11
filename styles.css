@@ -144,6 +144,8 @@ p {
     color: var(--text-color);
     opacity: 0.4;
     z-index: 3;
+    text-align: center;
+    position: bottom;
 }
 
 .footer a {

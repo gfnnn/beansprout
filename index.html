@@ -11,6 +11,9 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 </head>
 <body>
+    <footer class="footer">
+        Built by <a href="https://dotgfn.bsky.social" target="_blank">gfn</a> | © 2025 Tattoos by Roxy
+    </footer>
     <button class="menu-button" onclick="toggleMenu()">☰</button>
     <div class="menu-overlay" id="menu">
         <button class="close-menu" onclick="toggleMenu()">×</button>
@@ -30,9 +33,6 @@
             </div>
         </div>
     </main>
-    <footer class="footer">
-        Built by <a href="https://dotgfn.bsky.social" target="_blank">gfn</a> | © 2025 Tattoos by Roxy
-    </footer>
     <script>
         function toggleMenu() {
             document.getElementById('menu').classList.toggle('show');

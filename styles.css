@@ -168,14 +168,14 @@ p {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s cubic-bezier(0.35, -0.95, 0.50, 1.05);
     max-width: 250px;
     margin: auto;
     cursor: pointer;
 }
 
 .gallery img:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .instagram-logo {

@@ -6,43 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tattoos by Roxy</title>
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
-    
-    <style>
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-
-        .instagram-logo {
-            display: inline-block;
-            width: 60px;
-            height: 60px;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            cursor: pointer;
-            border-radius: 50%;
-            box-shadow: 0px 4px 10px var(--shadow-color);
-        }
-
-        .instagram-logo:hover {
-            animation: pulse 0.6s ease-in-out infinite alternate;
-        }
-
-        @keyframes pulse {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
-        }
-
-    </style>
 </head>
 <body>
     <button class="menu-button" onclick="toggleMenu()">☰</button>
@@ -57,9 +22,11 @@
         <div class="container">
             <h1>Tattoos by Roxy</h1>
             <p>Follow on Instagram</p>
-            <a href="https://www.instagram.com/beansprouttattoo" target="_blank">
-                <img class="instagram-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram Logo">
-            </a>
+            <div class="instagram-logo">
+                <a href="https://www.instagram.com/beansprouttattoo" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram Logo">
+                </a>
+            </div>
         </div>
     </main>
     <footer class="footer">

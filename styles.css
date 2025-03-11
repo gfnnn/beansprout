@@ -142,18 +142,15 @@ p {
     text-align: center;
     font-size: 12px;
     color: var(--text-color);
-    opacity: 0.4;
+    opacity: 0.5;
     z-index: 3;
-    text-align: center;
-    position: bottom;
 }
 
 .footer a {
-    text-decoration: none;
+    text-decoration: none;    
     color: var(--text-color);
     font-weight: bold;
-    transition: color 0.3s ease-in-out;
-    cursor: pointer;
+    transition: color 0.3s ease-in-out;  cursor: pointer;
 }
 
 .footer a:hover {

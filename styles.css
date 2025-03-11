@@ -116,6 +116,12 @@ p {
     font-size: 24px;
     text-decoration: none;
     margin: 15px 0;
+    transition: text-decoration 0.3s ease-in-out;
+}
+
+.menu-content a:hover,
+.menu-content a:active {
+    text-decoration: underline;
 }
 
 .close-menu {
@@ -200,4 +206,23 @@ p {
 @keyframes pulse {
     from { transform: scale(1); }
     to { transform: scale(1.1); }
+}
+
+.about-me {
+    margin-top: 40px;
+    text-align: left;
+}
+
+.about-me h2 {
+    font-family: 'Lora', serif;
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.about-me p {
+    color: var(--text-color);
+    font-size: 18x;
+    line-height: 1.4;
 }

@@ -178,6 +178,13 @@ p {
     transform: scale(1.1);
 }
 
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 .instagram-logo {
     filter: var(--svg-filter);
     display: inline-block;
@@ -185,14 +192,15 @@ p {
     height: 60px;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
+
 }
 
 .facebook-logo {
+    padding-top: 10px;
     filter: var(--svg-filter);
     display: inline-block;
     width: 60px;
     height: 60px;
-    transform:translateY(-7.5px);
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
 }
@@ -235,6 +243,6 @@ p {
 
 .about-me p {
     color: var(--text-color);
-    font-size: 18x;
+    font-size: 18px;
     line-height: 1.4;
 }

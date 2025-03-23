@@ -8,13 +8,13 @@
     <meta name="apple-mobile-web-app-title" content="Tattoos by Roxy" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Poppins:wght@400;700&display=swap" as="style" rel="stylesheet">
     <meta name="description" content="Tattoos by Roxy, Winchester-based tattoo artist">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Tattoos by Roxy | Home</title>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Poppins:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Poppins:wght@400;700&display=swap" as="style" rel="stylesheet" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Poppins:wght@400;700&display=swap">
     </noscript>
@@ -22,23 +22,38 @@
 </head>
 <body>
     <footer class="footer">
-        Built by <a href="https://dotgfn.bsky.social" target="_blank">gfn</a> | © 2025 Tattoos by Roxy
+        Built by <a href="https://dotgfn.bsky.social" target="_blank">gfn</a> | &copy; 2025 Tattoos by Roxy
     </footer>
     <button class="menu-button" onclick="toggleMenu()">☰</button>
     <div class="menu-overlay" id="menu">
         <button class="close-menu" onclick="toggleMenu()">×</button>
         <div class="menu-content">
-            <a href="https://beansprout.ink">Home</a>
-            <a href="https://beansprout.ink/tattoos">Tattoos</a>
+            <a href="/">Home</a>
+            <a href="/tattoos">Tattoos</a>
         </div>
     </div>
     <main class="content-wrapper">
         <div class="container">
             <h1>Tattoos by Roxy</h1>
-            <p>Follow on Instagram</p>
+            <p id="ascii-bunny">(\_/)<br>(^_^)<br>("'')(''")</p>
+            <script>
+                function wink() {
+                    const bunny = document.getElementById('ascii-bunny');
+                    bunny.innerHTML = "(\\_/)<br>(-_-)<br>(\"'')(\"'')";
+                    setTimeout(() => {
+                        bunny.innerHTML = "(\\_/)<br>(^_^)<br>(\"'')(\"'')";
+                    }, 80);
+                }
+                setInterval(wink, 3500);
+            </script>
             <div class="instagram-logo">
                 <a href="https://www.instagram.com/beansprouttattoo" target="_blank">
-                    <img src="instagram.svg" alt="Instagram Logo">
+                    <img src="instagram.svg" alt="Instagram Logo" loading="lazy">
+                </a>
+            </div>
+            <div class="facebook-logo">
+                <a href="https://www.facebook.com/profile.php?id=61572788016784" target="_blank">
+                    <img src="facebook.svg" alt="Facebook Logo" loading="lazy">
                 </a>
             </div>
         </div>

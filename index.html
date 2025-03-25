@@ -43,21 +43,22 @@
             <a href="/tattoos">Tattoos</a>
         </div>
     </div>
-    <main class="content-wrapper">
-        <div class="container">
-            <h1>Tattoos by Roxy</h1>
-            <p id="ascii-bunny">(\_/)<br>(^_^)<br>("'')(''")</p>
-            <script>
-                function wink() {
-                    const bunny = document.getElementById('ascii-bunny');
-                    bunny.innerHTML = "(\\_/)<br>(-_-)<br>(\"'')(\"'')";
-                    setTimeout(() => {
-                        bunny.innerHTML = "(\\_/)<br>(^_^)<br>(\"'')(\"'')";
-                    }, 80);
-                }
-                setInterval(wink, 3500);
-            </script>
-<div class="social-icons">
+    
+<main class="content-wrapper">
+    <div class="container">
+        <h1>Tattoos by Roxy</h1>
+        <p id="ascii-bunny">(\_/)<br>(^_^)<br>("'')(''")</p>
+        <script>
+            function wink() {
+            const bunny = document.getElementById('ascii-bunny');
+            bunny.innerHTML = "(\\_/)<br>(-_-)<br>(\"'')(\"'')";
+            setTimeout(() => {
+            bunny.innerHTML = "(\\_/)<br>(^_^)<br>(\"'')(\"'')";
+            }, 80);
+            }
+            setInterval(wink, 3500);
+        </script>
+        <div class="social-icons">
             <div class="instagram-logo">
                 <a href="https://www.instagram.com/beansprouttattoo" target="_blank">
                     <img src="instagram.svg" alt="Instagram Logo" loading="lazy">
@@ -69,8 +70,9 @@
                 </a>
             </div>
         </div>
-        </div>
-    </main>
+    </div>
+</main>
+
     <script>
         function toggleMenu() {
             document.getElementById('menu').classList.toggle('show');

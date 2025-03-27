@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    <a class="logo-button" href="/">
+    <a class="logo-button">
         <img src="../beansprout.png" alt="Logo" />
 
     <button class="menu-button" onclick="toggleMenu()">☰</button>
@@ -68,9 +68,9 @@
 </main>
 
 <script>
-    function toggleMenu() {
-        document.getElementById('menu').classList.toggle('show');
-    }
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('show');
+        }
 
     document.addEventListener('DOMContentLoaded', () => {
         const footer = document.createElement('footer');

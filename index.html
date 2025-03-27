@@ -15,25 +15,19 @@
     <meta http-equiv="Expires" content="0">
     <title>Tattoos by Roxy | Home</title>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Poppins:wght@400;700&display=swap" as="style" rel="stylesheet" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Poppins:wght@400;700&display=swap">
-    </noscript>
     <link rel="stylesheet" href="styles.css">
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-04CMENVNCK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-04CMENVNCK');
-</script>
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-04CMENVNCK">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-04CMENVNCK');
+    </script>
 </head>
+
 <body>
-    <a class="logo-button">
-        <img src="../beansprout.png" href="/" alt="Logo" />
+    <a class="logo-button" href="/">
+        <img src="../beansprout.png" alt="Logo" />
 
     <button class="menu-button" onclick="toggleMenu()">☰</button>
     <div class="menu-overlay" id="menu">
@@ -73,19 +67,21 @@
     </div>
 </main>
 
-    <script>
-        function toggleMenu() {
-            document.getElementById('menu').classList.toggle('show');
-        }
+<script>
+    function toggleMenu() {
+        document.getElementById('menu').classList.toggle('show');
+    }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const footer = document.createElement('footer');
-            footer.className = 'footer';
-            footer.innerHTML = `
-                Built by <a href="https://dotgfn.bsky.social" target="_blank">.gfn</a> | &copy; 2025 Tattoos by Roxy
-            `;
-            document.body.appendChild(footer);
-        });  
-    </script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const footer = document.createElement('footer');
+        footer.className = 'footer';
+        const currentYear = new Date().getFullYear();
+        footer.innerHTML = `
+            Built by <a href="https://dotgfn.bsky.social" target="_blank">.gfn</a> | &copy; ${currentYear} Tattoos by Roxy
+        `;
+        document.body.appendChild(footer);
+    });  
+</script>
+
 </body>
 </html>

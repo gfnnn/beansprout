@@ -32,9 +32,8 @@
 
 </head>
 <body>
-    <footer class="footer">
-        Built by <a href="https://dotgfn.bsky.social" target="_blank">.gfn</a> | &copy; 2025 Tattoos by Roxy
-    </footer>
+    <a class="logo-button">
+        <img src="../beansprout.png" href="/" alt="Logo" />
 
     <button class="menu-button" onclick="toggleMenu()">☰</button>
     <div class="menu-overlay" id="menu">
@@ -78,6 +77,15 @@
         function toggleMenu() {
             document.getElementById('menu').classList.toggle('show');
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const footer = document.createElement('footer');
+            footer.className = 'footer';
+            footer.innerHTML = `
+                Built by <a href="https://dotgfn.bsky.social" target="_blank">.gfn</a> | &copy; 2025 Tattoos by Roxy
+            `;
+            document.body.appendChild(footer);
+        });  
     </script>
 </body>
 </html>

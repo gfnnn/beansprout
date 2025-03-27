@@ -101,7 +101,9 @@
             const modal = document.getElementById('image-modal');
             modal.style.display = 'none';
         }
-
+        
+let currentGalleryIndex = 0;
+        
 function initializeGallery() {
     const gallerySets = document.querySelectorAll('.gallery-set');
     const galleryTitle = document.getElementById('gallery-title');

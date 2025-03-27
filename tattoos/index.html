@@ -33,17 +33,12 @@
 <style>
 .content-wrapper {
     align-items: flex-start;
-    padding-top: 10vh;
     box-sizing: border-box; 
 }
 </style>
 
 </head>
 <body>
-    <footer class="footer">
-        Built by <a href="https://dotgfn.bsky.social" target="_blank">.gfn</a> | &copy; 2025 Tattoos by Roxy
-    </footer>
-
     <a class="logo-button">
         <img src="../beansprout.png" href="/" alt="Logo" />
 
@@ -51,43 +46,118 @@
     <div id="menu" class="menu-overlay">
         <button class="close-menu" onclick="toggleMenu()">×</button>
         <div class="menu-content">
-            <a href="https://beansprout.ink/">Home</a>
-            <a href="https://beansprout.ink/tattoos">Tattoos</a>
+            <a href="../">Home</a>
+            <a href="../tattoos">Tattoos</a>
         </div>
     </div>
     <main class="content-wrapper">
         <div class="container">
-            <h1>Tattoos</h1>
-            <div class="gallery">
-                <img src="../images/dominoes.webp" alt="Dominoes" onclick="openModal(this)">
-                <img src="../images/Dragonfly.webp" alt="Dragonfly" onclick="openModal(this)">
-                <img src="../images/jellyfish.webp" alt="Jellyfish" onclick="openModal(this)">
-                <img src="../images/flowers.webp" alt="Flowers" onclick="openModal(this)">
-                <img src="../images/WotW.webp" alt="Witch of the West" onclick="openModal(this)">
-                <img src="../images/Soldier.webp" alt="Soldier" onclick="openModal(this)">
-                <img src="../images/Tiger.webp" alt="Tiger" onclick="openModal(this)">
-                <img src="../images/valkyrie.webp" alt="Valkyrie" onclick="openModal(this)">
-                <img src="../images/MooMoo.webp" alt="MooMoo" onclick="openModal(this)">
-                <img src="../images/MouseRabbit.webp" alt="MouseRabbit" onclick="openModal(this)">
+            <div class="gallery-navigation">
+                <button class="nav-arrow left-arrow" onclick="navigateGallery(-1)">&#8636;</button>
+                <h1 id="gallery-title">Tattoos</h1>
+                <button class="nav-arrow right-arrow" onclick="navigateGallery(1)">&#8641;</button>
             </div>
-        </div>
-        <div id="image-modal" class="modal" onclick="closeModal()">
-            <span class="modal-close">&times;</span>
-            <img id="modal-image" src="">
-        </div>
-    </main>
+            <div class="gallery-wrapper">
+                <div class="gallery" id="gallery">
+                    <div class="gallery-set" data-title="Fineline">
+                        <img src="../images/dominoes.webp" alt="Dominoes" onclick="openModal(this)">
+                        <img src="../images/flowers.webp" alt="Flowers" onclick="openModal(this)">
+                        <img src="../images/WotW.webp" alt="Witch of the West" onclick="openModal(this)">
+                        <img src="../images/MooMoo.webp" alt="MooMoo" onclick="openModal(this)">
+                    </div>
+                    <div class="gallery-set" data-title="Greyscale">
+                        <img src="../images/Dragonfly.webp" alt="Dragonfly" onclick="openModal(this)">
+                        <img src="../images/jellyfish.webp" alt="Jellyfish" onclick="openModal(this)">
+                        <img src="../images/Soldier.webp" alt="Soldier" onclick="openModal(this)">
+                        <img src="../images/Tiger.webp" alt="Tiger" onclick="openModal(this)">
+                        <img src="../images/valkyrie.webp" alt="Valkyrie" onclick="openModal(this)">
+                        <img src="../images/MouseRabbit.webp" alt="MouseRabbit" onclick="openModal(this)">
+                    </div>
+                    <div class="gallery-set" data-title="Colour">
+                        <img src="../images/butterfly1.webp" alt="Dragonfly" onclick="openModal(this)">
+                        <img src="../images/fnaf.webp" alt="Jellyfish" onclick="openModal(this)">
+                        <img src="../images/pepper.webp" alt="Soldier" onclick="openModal(this)">
+                        <img src="../images/happymushroom.webp" alt="Tiger" onclick="openModal(this)">
+                    </div>
+                </div>
+             </div>
+        </main>
+    <div id="image-modal" class="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img id="modal-image" src="">
+    </div>
     <script>
         function toggleMenu() {
             document.getElementById('menu').classList.toggle('show');
         }
         function openModal(img) {
-            document.getElementById('modal-image').src = img.src;
-            document.getElementById('image-modal').style.display = 'flex';
+            const modal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+
+            modalImage.src = img.src;
+            modal.style.display = 'flex';
+        }
+        function closeModal() {
+            const modal = document.getElementById('image-modal');
+            modal.style.display = 'none';
         }
 
-        function closeModal() {
-            document.getElementById('image-modal').style.display = 'none';
+        let currentGalleryIndex = 0;
+
+        function initializeGallery() {
+            const gallerySets = document.querySelectorAll('.gallery-set');
+            const galleryTitle = document.getElementById('gallery-title');
+            const galleryWrapper = document.querySelector('.gallery-wrapper');
+
+            gallerySets.forEach((set, index) => {
+                if (index === 0) {
+                    set.classList.add('active');
+                } else {
+                    set.classList.remove('active');
+                }
+            });
+
+            galleryTitle.textContent = gallerySets[0].dataset.title;
+
+            const activeSetHeight = gallerySets[0].offsetHeight;
+            galleryWrapper.style.height = `${activeSetHeight + 40}px`;
         }
-    </script>
+
+        function navigateGallery(direction) {
+            const gallerySets = document.querySelectorAll('.gallery-set');
+            const galleryWrapper = document.querySelector('.gallery-wrapper');
+            const galleryTitle = document.getElementById('gallery-title');
+
+            gallerySets[currentGalleryIndex].classList.remove('active');
+
+            currentGalleryIndex += direction;
+
+            if (currentGalleryIndex < 0) {
+                currentGalleryIndex = gallerySets.length - 1;
+            } else if (currentGalleryIndex >= gallerySets.length) {
+                currentGalleryIndex = 0;
+            }
+
+            gallerySets[currentGalleryIndex].classList.add('active');
+
+            galleryTitle.textContent = gallerySets[currentGalleryIndex].dataset.title;
+
+            const activeSetHeight = gallerySets[currentGalleryIndex].offsetHeight;
+            galleryWrapper.style.height = `${activeSetHeight + 0}px`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeGallery();
+        });
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const footer = document.createElement('footer');
+            footer.className = 'footer';
+            footer.innerHTML = `
+                Built by <a href="https://dotgfn.bsky.social" target="_blank">.gfn</a> | &copy; 2025 Tattoos by Roxy
+            `;
+            document.body.appendChild(footer);
+        });
+</script>
 </body>
 </html>

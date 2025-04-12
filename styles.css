@@ -181,9 +181,9 @@ p {
 .modal-close,
 .close-menu {
     position: absolute;
-    top: clamp(10px, 3vw, 40px);
-    right: clamp(10px, 3vw, 40px);
-    font-size: clamp(16px, 4vw, 32px);
+    top: clamp(15px, 4.5vw, 60px);
+    right: clamp(15px, 4.5vw, 60px);
+    font-size: clamp(24px, 6vw, 48px);
     background: none;
     border: none;
     cursor: pointer;

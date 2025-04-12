@@ -16,14 +16,12 @@
     <title>Tattoos by Roxy | Tattoos</title>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Poppins:wght@400;700&display=swap" as="style" rel="stylesheet" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="../styles.css">
-
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-04CMENVNCK">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-04CMENVNCK');
     </script>
-
     <style>
     .content-wrapper {
         align-items: flex-start;
@@ -32,11 +30,9 @@
     }
     </style>
 </head>
-
 <body>
     <a class="logo-button">
         <img rel="preload" src="../beansprout.png" alt="Logo">
-
     <button class="menu-button" onclick="toggleMenu()">☰</button>
     <div id="menu" class="menu-overlay">
         <button class="close-menu" onclick="toggleMenu()">×</button>
@@ -46,43 +42,43 @@
             <a href="../aftercare">Aftercare</a>
         </div>
     </div>
-    <main class="content-wrapper">
-        <div class="container">
-            <div class="gallery-navigation">
-                <button class="nav-arrow left-arrow" onclick="navigateGallery(-1)">&#8636;</button>
-                <h1 id="gallery-title">Tattoos</h1>
-                <button class="nav-arrow right-arrow" onclick="navigateGallery(1)">&#8641;</button>
-            </div>
-            <div class="gallery-wrapper">
-                <div class="gallery" id="gallery">
-                    <div class="gallery-set" data-title="Fineline">
-                        <img src="../images/dominoes.webp" alt="Dominoes" onclick="openModal(this)">
-                        <img src="../images/flowers.webp" alt="Flowers" onclick="openModal(this)">
-                        <img src="../images/WotW.webp" alt="Witch of the West" onclick="openModal(this)">
-                        <img src="../images/MooMoo.webp" alt="MooMoo" onclick="openModal(this)">
-                    </div>
-                    <div class="gallery-set" data-title="Greyscale">
-                        <img src="../images/Dragonfly.webp" loading="lazy" alt="Dragonfly" onclick="openModal(this)">
-                        <img src="../images/jellyfish.webp" loading="lazy" alt="Jellyfish" onclick="openModal(this)">
-                        <img src="../images/Soldier.webp" loading="lazy" alt="Soldier" onclick="openModal(this)">
-                        <img src="../images/Tiger.webp" loading="lazy" alt="Tiger" onclick="openModal(this)">
-                        <img src="../images/valkyrie.webp" loading="lazy" alt="Valkyrie" onclick="openModal(this)">
-                        <img src="../images/MouseRabbit.webp" loading="lazy" alt="MouseRabbit" onclick="openModal(this)">
-                    </div>
-                    <div class="gallery-set" data-title="Colour">
-                        <img src="../images/butterfly1.webp" loading="lazy" alt="Dragonfly" onclick="openModal(this)">
-                        <img src="../images/fnaf.webp" loading="lazy" alt="Jellyfish" onclick="openModal(this)">
-                        <img src="../images/pepper.webp" loading="lazy" alt="Soldier" onclick="openModal(this)">
-                        <img src="../images/happymushroom.webp" loading="lazy" alt="Tiger" onclick="openModal(this)">
-                    </div>
+<main class="content-wrapper">
+    <div class="container">
+        <div class="gallery-navigation">
+            <button class="nav-arrow left-arrow" onclick="navigateGallery(-1)">&#8636;</button>
+            <h1 id="gallery-title">Tattoos</h1>
+            <button class="nav-arrow right-arrow" onclick="navigateGallery(1)">&#8641;</button>
+        </div>
+        <div class="gallery-wrapper">
+            <div class="gallery" id="gallery">
+                <div class="gallery-set" data-title="Fineline">
+                    <img src="../images/dominoes.webp" alt="Dominoes" onclick="openModal(this)">
+                    <img src="../images/flowers.webp" alt="Flowers" onclick="openModal(this)">
+                    <img src="../images/WotW.webp" alt="Witch of the West" onclick="openModal(this)">
+                    <img src="../images/MooMoo.webp" alt="MooMoo" onclick="openModal(this)">
                 </div>
-             </div>
-        </main>
+                <div class="gallery-set" data-title="Greyscale">
+                    <img src="../images/Dragonfly.webp" loading="lazy" alt="Dragonfly" onclick="openModal(this)">
+                    <img src="../images/jellyfish.webp" loading="lazy" alt="Jellyfish" onclick="openModal(this)">
+                    <img src="../images/Soldier.webp" loading="lazy" alt="Soldier" onclick="openModal(this)">
+                    <img src="../images/Tiger.webp" loading="lazy" alt="Tiger" onclick="openModal(this)">
+                    <img src="../images/valkyrie.webp" loading="lazy" alt="Valkyrie" onclick="openModal(this)">
+                    <img src="../images/MouseRabbit.webp" loading="lazy" alt="MouseRabbit" onclick="openModal(this)">
+                </div>
+                <div class="gallery-set" data-title="Colour">
+                    <img src="../images/butterfly1.webp" loading="lazy" alt="Dragonfly" onclick="openModal(this)">
+                    <img src="../images/fnaf.webp" loading="lazy" alt="Jellyfish" onclick="openModal(this)">
+                    <img src="../images/pepper.webp" loading="lazy" alt="Soldier" onclick="openModal(this)">
+                    <img src="../images/happymushroom.webp" loading="lazy" alt="Tiger" onclick="openModal(this)">
+                </div>
+            </div>
+        </div>
+</main>
     <div id="image-modal" class="modal" onclick="closeModal()">
         <span class="modal-close">&times;</span>
         <img id="modal-image" src="">
     </div>
-    <script src="../scripts.js"></script>
-    <script src="gallery.js"></script>
+<script src="../scripts.js"></script>
+<script src="gallery.js"></script>
 </body>
 </html>

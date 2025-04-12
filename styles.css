@@ -215,7 +215,6 @@ p {
     height: clamp(30px, 8vw, 75px);
     background: none;
     color: var(--text-color);
-    border: none;
     font-size: clamp(20px, 4vw, 40px);
     cursor: pointer;
     border-radius: 50%;

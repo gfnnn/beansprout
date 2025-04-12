@@ -211,6 +211,9 @@ p {
 }
 
 .nav-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: clamp(30px, 8vw, 75px);
     height: clamp(30px, 8vw, 75px);
     background: none;

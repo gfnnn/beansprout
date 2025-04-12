@@ -170,6 +170,7 @@ p {
     font-size: clamp(16px, 4vw, 32px);
     line-height: clamp(24px, 6vw, 48px);
     text-decoration: none;
+    margin-bottom: clamp(10px, 2vw, 20px);
     transition: text-decoration 0.3s ease-in-out;
 }
 

@@ -35,6 +35,47 @@ body {
     margin: 0 auto;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(0); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        box-shadow: 0px 8px 20px var(--shadow-color);
+    }
+    17% {
+        transform: translateY(-12px);
+        box-shadow: 0px 12px 25px var(--shadow-color);
+    }
+    33% {
+        transform: translateY(0);
+        box-shadow: 0px 8px 20px var(--shadow-color);
+    }
+    50% {
+        transform: translateY(-8px);
+        box-shadow: 0px 10px 22px var(--shadow-color);
+    }
+    67% {
+        transform: translateY(0);
+        box-shadow: 0px 8px 20px var(--shadow-color);
+    }
+    83% {
+        transform: translateY(-4px);
+        box-shadow: 0px 9px 21px var(--shadow-color);
+    }
+    100% {
+        transform: translateY(0);
+        box-shadow: 0px 8px 20px var(--shadow-color);
+    }
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
 .content-wrapper {
     display: flex;
     justify-content:center;
@@ -48,9 +89,9 @@ body {
     padding: clamp(20px, 3vw, 50px);
     text-align: center;
     border-radius: clamp(10px, 2vw, 30px);
-    box-shadow: 0px 8px clamp(10px, 2vw, 30px) var(--shadow-color);
+    box-shadow: 0px 8px 20px var(--shadow-color);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    animation: float 5s ease-in-out infinite;
+    animation: float 8s ease-in-out 1 forwards;
     z-index: 4;    
 }
 
@@ -65,6 +106,7 @@ h2 {
     color: var(--text-color);
     font-size: clamp(16px, 4vw, 32px);
     text-decoration: none;
+    animation: pulse 1s infinite alternate;
 }
 
 p {
@@ -290,27 +332,12 @@ p {
     cursor: pointer;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(0); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-}
-
 .instagram-logo:hover {
     animation: pulse 0.6s ease-in-out infinite alternate;
 }
 
 .facebook-logo:hover {
     animation: pulse 0.6s ease-in-out infinite alternate;
-}
-
-@keyframes pulse {
-    from { transform: scale(1); }
-    to { transform: scale(1.1); }
 }
 
 .modal {

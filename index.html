@@ -9,6 +9,7 @@
     <link rel="manifest" href="/site.webmanifest" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="/beansprout.png" as="image">
     <meta name="description" content="Tattoos by Roxy, Winchester-based tattoo artist">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -41,12 +42,12 @@
         <p id="ascii-bunny">(\_/)<br>(^_^)<br>("'')(''")</p>
         <div class="social-icons">
             <div class="instagram-logo">
-                <a href="https://www.instagram.com/beansprouttattoo" target="_blank">
+                <a href="https://www.instagram.com/beansprouttattoo" target="_blank" rel="noopener noreferrer">
                     <img src="instagram.svg" alt="Instagram Logo" loading="lazy">
                 </a>
             </div>
             <div class="facebook-logo">
-                <a href="https://www.facebook.com/profile.php?id=61572788016784" target="_blank">
+                <a href="https://www.facebook.com/profile.php?id=61572788016784" target="_blank" rel="noopener noreferrer">
                     <img src="Facebook.svg" alt="Facebook Logo" loading="lazy">
                 </a>
             </div>
@@ -59,7 +60,7 @@
 <script>
     document.getElementById('current-year').textContent = new Date().getFullYear();
 </script>
-<script src="scripts.js"></script>
-<script src="bunny.js"></script>
+<script src="scripts.js" defer></script>
+<script src="bunny.js" defer></script>
 </body>
 </html>

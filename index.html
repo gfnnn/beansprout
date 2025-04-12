@@ -27,7 +27,7 @@
 
 <body>
     <a class="logo-button">
-        <img src="/beansprout.png" alt="Logo" />
+        <img rel="preload" src="/beansprout.png" alt="Logo" />
 
     <button class="menu-button" onclick="toggleMenu()">☰</button>
     <div class="menu-overlay" id="menu">
@@ -43,16 +43,7 @@
     <div class="container">
         <h1>Tattoos by Roxy</h1>
         <p id="ascii-bunny">(\_/)<br>(^_^)<br>("'')(''")</p>
-        <script>
-            function wink() {
-            const bunny = document.getElementById('ascii-bunny');
-            bunny.innerHTML = "(\\_/)<br>(-_-)<br>(\"'')(\"'')";
-            setTimeout(() => {
-            bunny.innerHTML = "(\\_/)<br>(^_^)<br>(\"'')(\"'')";
-            }, 80);
-            }
-            setInterval(wink, 3500);
-        </script>
+
         <div class="social-icons">
             <div class="instagram-logo">
                 <a href="https://www.instagram.com/beansprouttattoo" target="_blank">
@@ -67,22 +58,7 @@
         </div>
     </div>
 </main>
-
-<script>
-        function toggleMenu() {
-            document.getElementById('menu').classList.toggle('show');
-        }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const footer = document.createElement('footer');
-        footer.className = 'footer';
-        const currentYear = new Date().getFullYear();
-        footer.innerHTML = `
-            Built by <a href="https://dotgfn.bsky.social" target="_blank">.gfn</a> | &copy; ${currentYear} Tattoos by Roxy
-        `;
-        document.body.appendChild(footer);
-    });  
-</script>
-
+<script src="scripts.js"></script>
+<script src="bunny.js"></script>
 </body>
 </html>

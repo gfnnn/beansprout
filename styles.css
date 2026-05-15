@@ -67,7 +67,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     color: var(--text-color);
-    animation: fadeIn 1.2s ease-in-out;
+    animation: fadeIn 0.4s ease-in-out;
     margin: 0 auto;
 }
 
@@ -314,28 +314,19 @@ p {
 .gallery-wrapper {
     position: relative;
     width: 100%;
-    height: auto;
-    transition: height 0.3s ease-in-out;
-    overflow: hidden; 
-    padding-bottom: 10px; 
+    overflow: hidden;
+    padding-bottom: 10px;
 }
 
 .gallery-set {
     width: 100%;
-    display: grid;
+    display: none;
     grid-template-columns: repeat(2, 1fr);
     gap: clamp(10px, 2vw, 30px);
-    opacity: 0;
-    visibility: hidden;
-    transition: none; 
-    position: absolute;
-    top: 0;
 }
 
 .gallery-set.active {
-    opacity: 1;
-    visibility: visible;
-    position: relative;
+    display: grid;
 }
 
 .gallery img {

@@ -79,11 +79,11 @@ html, body {
 body {
     font-family: 'Poppins', sans-serif;
     background: var(--background-gradient);
-    background-attachment: fixed;
+
     background-size: cover;
     background-repeat: no-repeat;
     color: var(--text-color);
-    animation: fadeIn 1.2s ease-in-out;
+    animation: fadeIn 0.4s ease-in-out;
     margin: 0 auto;
 }
 
@@ -230,7 +230,7 @@ p {
     z-index: 5;
 }
 
-.menu-button :hover {
+.menu-button:hover {
     transform: scale(1.1);
     transition: transform 0.3s ease-in-out;
 }
@@ -286,7 +286,6 @@ p {
 }
 
 .gallery {
-    display: relative;
     gap: clamp(10px, 2vw, 30px);
     padding: clamp(10px, 2vw, 30px); 
     justify-content: center;
@@ -331,28 +330,19 @@ p {
 .gallery-wrapper {
     position: relative;
     width: 100%;
-    height: auto;
-    transition: height 0.3s ease-in-out;
-    overflow: hidden; 
-    padding-bottom: 10px; 
+    overflow: hidden;
+    padding-bottom: 10px;
 }
 
 .gallery-set {
     width: 100%;
-    display: grid;
+    display: none;
     grid-template-columns: repeat(2, 1fr);
     gap: clamp(10px, 2vw, 30px);
-    opacity: 0;
-    visibility: hidden;
-    transition: none; 
-    position: absolute;
-    top: 0;
 }
 
 .gallery-set.active {
-    opacity: 1;
-    visibility: visible;
-    position: relative;
+    display: grid;
 }
 
 .gallery img {
@@ -484,7 +474,8 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="text"] {
+input[type="text"],
+textarea {
     font-family: 'lora', serif;
     padding: 6px;
     margin: 8px 0;
@@ -494,22 +485,25 @@ input[type="text"] {
     background-color: var(--box-background);
 }
 
-input[type=text]:focus {
+input[type=text]:focus,
+textarea:focus {
     width: 80%;
-  }
+}
 
 input:hover,
-input:focus {
+input:focus,
+textarea:hover,
+textarea:focus {
     background-color: var(--text-color);
     color: var(--button-background);
 }
 
 #message {
-    width: clamp(200px, 50%, 600px);
+    width: 80%;
     height: clamp(50px, 10vw, 300px);
     text-align: left;
     vertical-align: top;
-    width: 80%;
+    resize: vertical;
 }
 
 /* ===== Book Now nav button ===== */

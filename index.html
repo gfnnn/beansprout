@@ -23,11 +23,28 @@
     gtag('js', new Date());
     gtag('config', 'G-04CMENVNCK');
     </script>
+    <style>
+    .content-wrapper {
+        display: block;
+        height: auto;
+        max-height: none;
+        max-width: 760px;
+        margin: 0 auto;
+        /* top clears the fixed hamburger + logo row (~50px tall) */
+        padding: clamp(60px, 8vw + 10px, 90px) var(--space-md) var(--space-xl);
+        box-sizing: border-box;
+    }
+    .footer {
+        position: static;
+        padding: var(--space-md) 0 var(--space-sm);
+    }
+    </style>
 </head>
 <body>
     <a class="logo-button">
         <img rel="preload" src="/beansprout.png" alt="Logo">
     <button class="menu-button" onclick="toggleMenu()">☰</button>
+    <a class="book-now-btn" href="https://www.instagram.com/beansprouttattoo" target="_blank" rel="noopener noreferrer">Book now</a>
     <div id="menu" class="menu-overlay">
         <button class="close-menu" onclick="toggleMenu()">×</button>
         <div class="menu-content">
@@ -39,6 +56,14 @@
 <main class="content-wrapper">
     <div class="container">
         <h1>Tattoos by Roxy</h1>
+        <p class="tagline">🌱 Bespoke Tattoos 🌱 · Appointment only. Inclusive and Non-Judgemental! Neurodivergent friendly!</p>
+        <p class="location-line">📍 Winchester, UK · @tinyknivestattoo</p>
+        <div class="pill-row">
+            <span class="pill">ICP trained</span>
+            <span class="pill">Appointment only</span>
+            <span class="pill">Neurodivergent friendly</span>
+            <span class="pill">Inclusive &amp; non-judgemental</span>
+        </div>
         <p id="ascii-bunny">(\_/)<br>(^_^)<br>("'')(''")</p>
         <div class="social-icons">
             <div class="instagram-logo">
@@ -53,6 +78,73 @@
             </div>
         </div>
     </div>
+
+    <!-- Styles section -->
+    <section class="home-section">
+        <h2 class="section-heading">Styles</h2>
+        <div class="pill-row">
+            <span class="pill">Fine line</span>
+            <span class="pill">Greyscale</span>
+            <span class="pill">Colour</span>
+            <span class="pill">Illustrative</span>
+            <span class="pill">Nature &amp; botanical</span>
+            <span class="pill">Pop culture &amp; gaming</span>
+        </div>
+    </section>
+
+    <hr class="home-divider">
+
+    <!-- Portfolio preview -->
+    <section class="home-section">
+        <h2 class="section-heading">Recent work</h2>
+        <div class="preview-grid">
+            <a href="/tattoos"><img src="/images/Lily.webp" alt="Lily tattoo" loading="lazy"></a>
+            <a href="/tattoos"><img src="/images/Tiger.webp" alt="Tiger tattoo" loading="lazy"></a>
+            <a href="/tattoos"><img src="/images/jellyfish.webp" alt="Jellyfish tattoo" loading="lazy"></a>
+            <a href="/tattoos"><img src="/images/Dragonfly.webp" alt="Dragonfly tattoo" loading="lazy"></a>
+            <a href="/tattoos"><img src="/images/Koi.webp" alt="Koi tattoo" loading="lazy"></a>
+            <a href="/tattoos"><img src="/images/butterfly1.webp" alt="Butterfly tattoo" loading="lazy"></a>
+        </div>
+        <a class="view-all" href="/tattoos">View full portfolio →</a>
+    </section>
+
+    <hr class="home-divider">
+
+    <!-- Info cards -->
+    <section class="home-section">
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>📍 Winchester, UK</h3>
+                <p>Based at @tinyknivestattoo. Studio address shared on booking.</p>
+            </div>
+            <div class="info-card">
+                <h3>💷 Pricing</h3>
+                <p>Varies by size and complexity. Get in touch with your idea for a quote.</p>
+            </div>
+            <div class="info-card">
+                <h3>✨ First tattoo?</h3>
+                <p>Roxy loves working with first-timers and is happy to walk you through everything before you commit.</p>
+            </div>
+            <div class="info-card">
+                <h3>🩹 Aftercare</h3>
+                <p>Full guidance for second skin and cling film. See the <a href="/aftercare">aftercare page</a> for instructions.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="home-divider">
+
+    <!-- CTA block -->
+    <section class="home-section">
+        <div class="cta-card">
+            <h2 class="cta-heading">Book a tattoo</h2>
+            <p>Send a message via Instagram or Facebook with your idea, placement, and any reference images — Roxy will get back to you to discuss.</p>
+            <div class="cta-btn-row">
+                <a class="btn-filled" href="https://www.instagram.com/beansprouttattoo" target="_blank" rel="noopener noreferrer">Message on Instagram</a>
+                <a class="btn-outline" href="https://www.facebook.com/profile.php?id=61572788016784" target="_blank" rel="noopener noreferrer">Message on Facebook</a>
+            </div>
+        </div>
+    </section>
 </main>
 <footer class="footer">
     Built by <a href="https://dotgfn.bsky.social" target="_blank">.gfn</a> | &copy; <span id="current-year"></span> Tattoos by Roxy

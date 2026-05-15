@@ -1,1 +1,9 @@
-document.addEventListener("DOMContentLoaded",(()=>{setInterval((function(){const n=document.getElementById("ascii-bunny");n.innerHTML="(\\_/)<br>(-_-)<br>(\"'')(\"'')",setTimeout((()=>{n.innerHTML="(\\_/)<br>(^_^)<br>(\"'')(\"'')"}),80)}),3500)}));
+document.addEventListener("DOMContentLoaded", () => {
+    setInterval(() => {
+        const bunny = document.getElementById("ascii-bunny");
+        bunny.innerHTML = "(\\_/)<br>(-_-)<br>(\"'')(\"'')";
+        setTimeout(() => {
+            bunny.innerHTML = "(\\_/)<br>(^_^)<br>(\"'')(\"'')";
+        }, 80);
+    }, 3500);
+});

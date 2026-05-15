@@ -1,1 +1,66 @@
-function toggleMenu(){document.getElementById("menu").classList.toggle("show")}function openModal(e){const t=document.getElementById("image-modal");document.getElementById("modal-image").src=e.src,t.style.display="flex"}function closeModal(){document.getElementById("image-modal").style.display="none"}let currentGalleryIndex=0;function initializeGallery(){const e=document.querySelectorAll(".gallery-set"),t=document.getElementById("gallery-title"),l=document.querySelector(".gallery-wrapper");e.forEach(((e,t)=>{0===t?e.classList.add("active"):e.classList.remove("active")})),t.textContent=e[0].dataset.title;const n=e[0],r=n.querySelectorAll("img");let a=0;if(r.forEach((e=>{e.complete?a++:e.addEventListener("load",(()=>{if(a++,a===r.length){const e=n.offsetHeight;l.style.height=`${e+40}px`}}))})),a===r.length){const e=n.offsetHeight;l.style.height=`${e+40}px`}}function navigateGallery(e){const t=document.querySelectorAll(".gallery-set"),l=document.querySelector(".gallery-wrapper"),n=document.getElementById("gallery-title");t[currentGalleryIndex].classList.remove("active"),currentGalleryIndex+=e,currentGalleryIndex<0?currentGalleryIndex=t.length-1:currentGalleryIndex>=t.length&&(currentGalleryIndex=0),t[currentGalleryIndex].classList.add("active"),n.textContent=t[currentGalleryIndex].dataset.title;const r=t[currentGalleryIndex],a=r.querySelectorAll("img");let o=0;if(a.forEach((e=>{e.complete?o++:e.addEventListener("load",(()=>{if(o++,o===a.length){const e=r.offsetHeight;l.style.height=`${e+40}px`}}))})),o===a.length){const e=r.offsetHeight;l.style.height=`${e+40}px`}}document.addEventListener("DOMContentLoaded",(()=>{initializeGallery()}));
+function openModal(img) {
+    const modal = document.getElementById("image-modal");
+    document.getElementById("modal-image").src = img.src;
+    modal.style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("image-modal").style.display = "none";
+}
+
+let currentGalleryIndex = 0;
+
+function setGalleryHeight(set, wrapper) {
+    const imgs = set.querySelectorAll("img");
+    let loaded = 0;
+    imgs.forEach(img => {
+        if (img.complete) {
+            loaded++;
+        } else {
+            img.addEventListener("load", () => {
+                if (++loaded === imgs.length) {
+                    wrapper.style.height = `${set.offsetHeight + 40}px`;
+                }
+            });
+        }
+    });
+    if (loaded === imgs.length) {
+        wrapper.style.height = `${set.offsetHeight + 40}px`;
+    }
+}
+
+function initializeGallery() {
+    const sets = document.querySelectorAll(".gallery-set");
+    const title = document.getElementById("gallery-title");
+    const wrapper = document.querySelector(".gallery-wrapper");
+
+    sets.forEach((set, i) => {
+        if (i === 0) set.classList.add("active");
+        else set.classList.remove("active");
+    });
+
+    title.textContent = sets[0].dataset.title;
+    setGalleryHeight(sets[0], wrapper);
+}
+
+function navigateGallery(dir) {
+    const sets = document.querySelectorAll(".gallery-set");
+    const wrapper = document.querySelector(".gallery-wrapper");
+    const title = document.getElementById("gallery-title");
+
+    sets[currentGalleryIndex].classList.remove("active");
+    currentGalleryIndex += dir;
+    if (currentGalleryIndex < 0) currentGalleryIndex = sets.length - 1;
+    else if (currentGalleryIndex >= sets.length) currentGalleryIndex = 0;
+
+    sets[currentGalleryIndex].classList.add("active");
+    title.textContent = sets[currentGalleryIndex].dataset.title;
+    setGalleryHeight(sets[currentGalleryIndex], wrapper);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    initializeGallery();
+    document.addEventListener("keydown", e => {
+        if (e.key === "Escape") closeModal();
+    });
+});

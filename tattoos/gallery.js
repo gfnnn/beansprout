@@ -10,29 +10,9 @@ function closeModal() {
 
 let currentGalleryIndex = 0;
 
-function setGalleryHeight(set, wrapper) {
-    const imgs = set.querySelectorAll("img");
-    let loaded = 0;
-    imgs.forEach(img => {
-        if (img.complete) {
-            loaded++;
-        } else {
-            img.addEventListener("load", () => {
-                if (++loaded === imgs.length) {
-                    wrapper.style.height = `${set.offsetHeight + 40}px`;
-                }
-            });
-        }
-    });
-    if (loaded === imgs.length) {
-        wrapper.style.height = `${set.offsetHeight + 40}px`;
-    }
-}
-
 function initializeGallery() {
     const sets = document.querySelectorAll(".gallery-set");
     const title = document.getElementById("gallery-title");
-    const wrapper = document.querySelector(".gallery-wrapper");
 
     sets.forEach((set, i) => {
         if (i === 0) set.classList.add("active");
@@ -40,12 +20,10 @@ function initializeGallery() {
     });
 
     title.textContent = sets[0].dataset.title;
-    setGalleryHeight(sets[0], wrapper);
 }
 
 function navigateGallery(dir) {
     const sets = document.querySelectorAll(".gallery-set");
-    const wrapper = document.querySelector(".gallery-wrapper");
     const title = document.getElementById("gallery-title");
 
     sets[currentGalleryIndex].classList.remove("active");
@@ -55,7 +33,6 @@ function navigateGallery(dir) {
 
     sets[currentGalleryIndex].classList.add("active");
     title.textContent = sets[currentGalleryIndex].dataset.title;
-    setGalleryHeight(sets[currentGalleryIndex], wrapper);
 }
 
 document.addEventListener("DOMContentLoaded", () => {

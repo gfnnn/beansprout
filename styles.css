@@ -72,16 +72,17 @@
     font-display: swap;
 }
 
-html, body {
+html {
     height: 100%;
 }
 
 body {
+    min-height: 100%;
     font-family: 'Poppins', sans-serif;
     background: var(--background-gradient);
-
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     color: var(--text-color);
     animation: fadeIn 0.4s ease-in-out;
     margin: 0 auto;
@@ -564,20 +565,29 @@ textarea:focus {
     font-size: var(--text-xs);
     padding: 5px 13px;
     border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
     box-shadow: 0px 4px 10px var(--shadow-color);
     white-space: nowrap;
+}
+
+@media (prefers-color-scheme: dark) {
+    .pill {
+        border-color: rgba(255, 255, 255, 0.14);
+    }
 }
 
 /* Pills inside the hero container use a translucent overlay so they
    read against the identical box-background colour */
 .container .pill {
-    background: rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 0, 0, 0.15);
     box-shadow: 0px 2px 6px var(--shadow-color);
 }
 
 @media (prefers-color-scheme: dark) {
     .container .pill {
-        background: rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.11);
+        border-color: rgba(255, 255, 255, 0.18);
     }
 }
 

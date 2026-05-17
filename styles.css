@@ -3,10 +3,26 @@
     --bg-canvas: #b4bcc1; /* end colour of gradient — fills canvas where gradient doesn't reach */
     --text-color: #827970;
     --box-background: #bbc2b7;
-    --button-background: #4b6b47;  
-    --button-hover: #e07a5f;  
+    --button-background: #4b6b47;
+    --button-hover: #e07a5f;
     --shadow-color: rgba(0, 0, 0, 0.3);
     --svg-filter: invert(49%) sepia(1%) saturate(2777%) hue-rotate(349deg) brightness(97%) contrast(95%);
+
+    /* ── Type scale (min at 375 px → max at ~1100 px) ────────────────────
+       Formula: clamp(min, slope·vw + intercept, max)
+       All values verified to hit min at 375 px and max before 1200 px.    */
+    --text-xs:   clamp(10px, 0.25vw + 9.06px,  12px); /* labels, captions  */
+    --text-sm:   clamp(13px, 0.33vw + 11.76px, 15px); /* small body        */
+    --text-base: clamp(14px, 1vw   + 10.25px,  18px); /* body copy         */
+    --text-lg:   clamp(18px, 1.2vw + 13.5px,   26px); /* section headings  */
+    --text-hero: clamp(28px, 3vw   + 16.75px,  52px); /* hero h1           */
+
+    /* ── Spacing scale (same approach) ──────────────────────────────────── */
+    --space-xs: clamp(8px,  0.8vw + 5px,  12px);
+    --space-sm: clamp(12px, 1vw   + 8px,  20px);
+    --space-md: clamp(16px, 1.5vw + 10px, 28px);
+    --space-lg: clamp(24px, 2.5vw + 14px, 40px);
+    --space-xl: clamp(32px, 4vw   + 17px, 56px);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -155,7 +171,7 @@ body {
 h1 {
     font-family: 'Lora', serif;
     color: var(--text-color);
-    font-size: clamp(16px, 6vw, 64px);
+    font-size: var(--text-hero);
 }
 
 h2 {
@@ -168,8 +184,8 @@ h2 {
 
 p {
     color: var(--text-color);
-    line-height: 1.5;
-    font-size: clamp(8px, 3vw, 32px);
+    line-height: 1.6;
+    font-size: var(--text-base);
 }
 
 .footer {

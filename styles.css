@@ -1,6 +1,7 @@
 :root {
     --background-gradient: linear-gradient(to bottom, #c4ccc1, #b4bcc1);
-    --text-color: #827970; 
+    --bg-canvas: #b4bcc1; /* end colour of gradient — fills canvas where gradient doesn't reach */
+    --text-color: #827970;
     --box-background: #bbc2b7;
     --button-background: #4b6b47;  
     --button-hover: #e07a5f;  
@@ -11,6 +12,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --background-gradient: linear-gradient(to bottom, #707670, #575b57);
+        --bg-canvas: #575b57; /* dark mode end colour */
         --text-color: #d2c4b5;
         --box-background: #4d514d;
         --button-background: #3f6b3f;
@@ -56,16 +58,29 @@
     font-display: swap;
 }
 
-html, body {
-    height: 100%;
+html {
+    /* Background lives here so the root element's canvas covers the full
+       scrollable page — spec guarantees it extends beyond the viewport.
+       background-attachment:fixed keeps the gradient pinned to the viewport
+       so it looks consistent at every scroll position.
+
+       background-color:var(--bg-canvas) is the gradient's end colour.
+       On browsers/devices where background-attachment:fixed falls back to
+       scroll (e.g. iOS Safari), the gradient only paints viewport-height
+       worth of canvas. Without this fallback the canvas below would be
+       white — very obvious in dark mode. The matching end colour makes the
+       canvas seamlessly continue the gradient tone below the fold. */
+    min-height: 100%;
+    background-color: var(--bg-canvas);
+    background-image: var(--background-gradient);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 body {
+    min-height: 100vh;
     font-family: 'Poppins', sans-serif;
-    background: var(--background-gradient);
-
-    background-size: cover;
-    background-repeat: no-repeat;
     color: var(--text-color);
     animation: fadeIn 0.4s ease-in-out;
     margin: 0 auto;
@@ -125,10 +140,16 @@ body {
     padding: clamp(20px, 3vw, 50px);
     text-align: center;
     border-radius: clamp(10px, 2vw, 30px);
+    border: 1px solid rgba(0, 0, 0, 0.14);
     box-shadow: 0px 8px 20px var(--shadow-color);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     animation: float 8s ease-in-out 1 forwards;
-    z-index: 4;    
+    z-index: 4;
+    /* Cap width so the container never stretches edge-to-edge on
+       pages like aftercare where the content-wrapper has no max-width */
+    width: 100%;
+    max-width: clamp(300px, 90vw, 760px);
+    box-sizing: border-box;
 }
 
 h1 {
@@ -488,4 +509,296 @@ textarea:focus {
     text-align: left;
     vertical-align: top;
     resize: vertical;
+}
+
+/* ===== Book Now nav button ===== */
+/* Font, padding, and right-offset all use the same 5vw scale as the
+   hamburger and logo so the entire nav row grows/shrinks together. */
+.book-now-btn {
+    position: fixed;
+    top: clamp(8px, 1.5vw, 16px);
+    /* Mirror the logo's right + width + 8px gap */
+    right: calc(clamp(12px, 5vw, 50px) + 28px);
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(10px, 2.5vw, 14px);
+    background-color: var(--button-background);
+    color: var(--text-color);
+    border: none;
+    border-radius: clamp(12px, 2vw, 20px);
+    padding: clamp(4px, 0.8vw, 8px) clamp(10px, 2vw, 18px);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    z-index: 5;
+    transition: background-color 0.3s ease-in-out;
+    white-space: nowrap;
+}
+
+.book-now-btn:hover {
+    background-color: var(--button-hover);
+}
+
+/* ===== Hero additions ===== */
+.tagline {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--text-sm);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0 0 var(--space-xs);
+}
+
+.location-line {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--text-xs);
+    color: var(--text-color);
+    opacity: 0.75;
+    margin: 0 0 var(--space-sm);
+}
+
+/* ===== Pills ===== */
+.pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    justify-content: center;
+    margin-bottom: var(--space-sm);
+}
+
+.pill {
+    background: var(--box-background);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--text-xs);
+    padding: 5px 13px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    box-shadow: 0px 4px 10px var(--shadow-color);
+    white-space: nowrap;
+}
+
+@media (prefers-color-scheme: dark) {
+    .pill {
+        border-color: rgba(255, 255, 255, 0.14);
+    }
+    .container,
+    .info-card,
+    .cta-card {
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+}
+
+/* Pills inside the hero container use a translucent overlay so they
+   read against the identical box-background colour */
+.container .pill {
+    background: rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 2px 6px var(--shadow-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    .container .pill {
+        background: rgba(255, 255, 255, 0.11);
+        border-color: rgba(255, 255, 255, 0.18);
+    }
+}
+
+/* ===== Homepage sections ===== */
+.home-section {
+    padding: var(--space-lg) 0;
+}
+
+.section-heading {
+    font-family: 'Lora', serif;
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: var(--text-lg);
+    text-align: center;
+    margin: 0 0 var(--space-sm);
+    animation: none;
+    text-decoration: none;
+}
+
+/* First section gets extra top breathing room after the hero card */
+.home-section:first-of-type {
+    padding-top: var(--space-xl);
+}
+
+.home-divider {
+    border: none;
+    border-top: 1px solid var(--text-color);
+    opacity: 0.22;
+    margin: 0;
+}
+
+/* ===== Portfolio preview grid ===== */
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+}
+
+.preview-grid a {
+    display: block;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: clamp(4px, 0.5vw, 8px);
+    background-color: var(--box-background); /* tile bg while image loads */
+    box-shadow: 0px 2px 8px var(--shadow-color);
+}
+
+.preview-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    max-width: none;
+    border-radius: 0;
+    transition: transform 0.3s cubic-bezier(0.35, -0.95, 0.50, 1.05);
+}
+
+.preview-grid a:hover img {
+    transform: scale(1.1);
+}
+
+.view-all {
+    display: block;
+    text-align: center;
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--text-sm);
+    text-decoration: none;
+    opacity: 0.75;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.view-all:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* ===== Info cards ===== */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+}
+
+.info-card {
+    background: var(--box-background);
+    border-radius: clamp(10px, 1.5vw, 20px);
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    box-shadow: 0px 8px 20px var(--shadow-color);
+    padding: var(--space-md);
+}
+
+.info-card h3 {
+    font-family: 'Lora', serif;
+    font-size: var(--text-sm);
+    color: var(--text-color);
+    margin: 0 0 6px;
+}
+
+.info-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--text-sm);
+    color: var(--text-color);
+    opacity: 0.85;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.info-card a {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+/* ===== CTA block ===== */
+.cta-card {
+    background: var(--box-background);
+    border-radius: clamp(10px, 1.5vw, 20px);
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    box-shadow: 0px 8px 20px var(--shadow-color);
+    padding: var(--space-xl) var(--space-lg);
+    text-align: center;
+}
+
+.cta-heading {
+    font-family: 'Lora', serif;
+    font-weight: bold;
+    font-size: var(--text-lg);
+    color: var(--text-color);
+    text-align: center;
+    margin: 0 0 var(--space-sm);
+    animation: none;
+    text-decoration: none;
+}
+
+.cta-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    margin: 0 0 var(--space-md);
+    opacity: 0.85;
+}
+
+.cta-btn-row {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-filled {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--text-sm);
+    background-color: var(--button-background);
+    color: var(--text-color);
+    border: none;
+    border-radius: 16px;
+    padding: 8px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+    white-space: nowrap;
+}
+
+.btn-filled:hover {
+    background-color: var(--button-hover);
+}
+
+.btn-outline {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--text-sm);
+    background: transparent;
+    color: var(--text-color);
+    border: 1.5px solid var(--button-background);
+    border-radius: 16px;
+    padding: 8px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    white-space: nowrap;
+}
+
+.btn-outline:hover {
+    background-color: var(--button-hover);
+    border-color: var(--button-hover);
+}
+
+/* ===== Responsive breakpoints ===== */
+/* Single-column info cards on narrow phones */
+@media (max-width: 560px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 2-column portfolio grid on very small screens */
+@media (max-width: 400px) {
+    .preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

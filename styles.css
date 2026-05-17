@@ -1,5 +1,6 @@
 :root {
     --background-gradient: linear-gradient(to bottom, #c4ccc1, #b4bcc1);
+    --bg-canvas: #b4bcc1; /* end colour of gradient — fills canvas where gradient doesn't reach */
     --text-color: #827970;
     --box-background: #bbc2b7;
     --button-background: #4b6b47;
@@ -27,6 +28,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --background-gradient: linear-gradient(to bottom, #707670, #575b57);
+        --bg-canvas: #575b57; /* dark mode end colour */
         --text-color: #d2c4b5;
         --box-background: #4d514d;
         --button-background: #3f6b3f;
@@ -76,9 +78,17 @@ html {
     /* Background lives here so the root element's canvas covers the full
        scrollable page — spec guarantees it extends beyond the viewport.
        background-attachment:fixed keeps the gradient pinned to the viewport
-       so it looks consistent at every scroll position. */
+       so it looks consistent at every scroll position.
+
+       background-color:var(--bg-canvas) is the gradient's end colour.
+       On browsers/devices where background-attachment:fixed falls back to
+       scroll (e.g. iOS Safari), the gradient only paints viewport-height
+       worth of canvas. Without this fallback the canvas below would be
+       white — very obvious in dark mode. The matching end colour makes the
+       canvas seamlessly continue the gradient tone below the fold. */
     min-height: 100%;
-    background: var(--background-gradient);
+    background-color: var(--bg-canvas);
+    background-image: var(--background-gradient);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

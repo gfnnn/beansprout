@@ -659,7 +659,8 @@ textarea:focus {
     aspect-ratio: 1;
     overflow: hidden;
     border-radius: clamp(4px, 0.5vw, 8px);
-    box-shadow: 0px 4px 12px var(--shadow-color);
+    background-color: var(--box-background); /* tile bg while image loads */
+    box-shadow: 0px 2px 8px var(--shadow-color);
 }
 
 .preview-grid img {

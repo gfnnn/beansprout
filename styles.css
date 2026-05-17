@@ -150,7 +150,12 @@ body {
     box-shadow: 0px 8px 20px var(--shadow-color);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     animation: float 8s ease-in-out 1 forwards;
-    z-index: 4;    
+    z-index: 4;
+    /* Cap width so the container never stretches edge-to-edge on
+       pages like aftercare where the content-wrapper has no max-width */
+    width: 100%;
+    max-width: clamp(300px, 90vw, 760px);
+    box-sizing: border-box;
 }
 
 h1 {

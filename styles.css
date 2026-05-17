@@ -146,6 +146,7 @@ body {
     padding: clamp(20px, 3vw, 50px);
     text-align: center;
     border-radius: clamp(10px, 2vw, 30px);
+    border: 1px solid rgba(0, 0, 0, 0.14);
     box-shadow: 0px 8px 20px var(--shadow-color);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     animation: float 8s ease-in-out 1 forwards;
@@ -580,6 +581,11 @@ textarea:focus {
     .pill {
         border-color: rgba(255, 255, 255, 0.14);
     }
+    .container,
+    .info-card,
+    .cta-card {
+        border-color: rgba(255, 255, 255, 0.12);
+    }
 }
 
 /* Pills inside the hero container use a translucent overlay so they
@@ -681,6 +687,7 @@ textarea:focus {
 .info-card {
     background: var(--box-background);
     border-radius: clamp(10px, 1.5vw, 20px);
+    border: 1px solid rgba(0, 0, 0, 0.14);
     box-shadow: 0px 8px 20px var(--shadow-color);
     padding: var(--space-md);
 }
@@ -710,6 +717,7 @@ textarea:focus {
 .cta-card {
     background: var(--box-background);
     border-radius: clamp(10px, 1.5vw, 20px);
+    border: 1px solid rgba(0, 0, 0, 0.14);
     box-shadow: 0px 8px 20px var(--shadow-color);
     padding: var(--space-xl) var(--space-lg);
     text-align: center;

@@ -17,9 +17,10 @@ Lora and Poppins fonts.
 
 ## How it was built
 
-I built the first version in early 2025. The May 2026 review fixes (accessibility,
-HTML structure, gallery load speed and the homepage redesign) were made with Claude,
-Anthropic's AI coding assistant, and those commits are co-authored with it.
+This site is AI-assisted. I built the first version in early 2025 with help from AI
+tools. The May 2026 review fixes (accessibility, HTML structure, gallery load speed and
+the homepage redesign) were made with Claude, Anthropic's AI coding assistant, and
+those commits are co-authored with it.
 
 ## Run it locally
 
